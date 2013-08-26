@@ -1,0 +1,32 @@
+NAME
+    RT::Extension::AWS::SES - Amazon Simple Email Service (SES)
+    compatibility
+
+DESCRIPTION
+    Amazon Simple Email Service (SES) (<http://aws.amazon.com/ses/>) is a
+    highly scalable and cost-effective bulk and transactional email-sending
+    service for businesses and developers. Part of Amazon web services (AWS)
+    infrastructure.
+
+    This RT extension helps overcome some restrictions of SES.
+
+  Email headers
+    SES restricts email headers to RFC822, everything else should be
+    prefixed with 'X-'. This is not required by newer RFCs that obsolete
+    RFC822, but RFC822 is still called standard while the rest are proposals
+    or drafts.
+
+    List of allowed headers you can find in documentation -
+    <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/header-fields.html
+    >.
+
+    For RT this means that some fields will be prefixed with "X-" prefix,
+    for example "RT-Ticket". This may be important to recipients who use
+    such headers for automation.
+
+AUTHOR
+    Ruslan Zakirov <ruz@bestpractical.com>
+
+LICENSE
+    Under the same terms as perl itself.
+
